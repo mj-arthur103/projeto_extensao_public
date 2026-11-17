@@ -1,0 +1,13 @@
+/* Leve — espaços reservados das imagens ainda não baixadas */
+img[data-leve='blocked'] {
+  cursor: pointer !important;
+}
+
+img[data-leve='blocked']:hover {
+  filter: brightness(0.96);
+}
+
+img[data-leve='loading'] {
+  cursor: progress !important;
+  opacity: 0.6;
+}

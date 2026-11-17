@@ -1,0 +1,13 @@
+{
+  "name": "leve",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Extensão de navegador que deixa as páginas mais leves",
+  "scripts": {
+    "test": "node test/e2e.js",
+    "icons": "node tools/make-icons.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

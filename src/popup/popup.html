@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Leve</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../../icons/icon48.png" alt="" width="28" height="28" />
+      <div>
+        <h1>Leve</h1>
+        <p id="host" class="muted"></p>
+      </div>
+      <label class="switch" title="Ligar ou desligar a extensão neste site">
+        <input type="checkbox" id="siteOn" />
+        <span></span>
+      </label>
+    </header>
+
+    <p id="notice" class="notice" hidden></p>
+
+    <section>
+      <div class="row">
+        <div>
+          <h2>Escolher quais imagens baixar</h2>
+          <p class="muted">As imagens só são baixadas quando você clica nelas.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="blockImages" /><span></span></label>
+      </div>
+      <p id="blockStats" class="stat" hidden></p>
+      <label class="check" id="tabAllowedRow">
+        <input type="checkbox" id="tabAllowed" />
+        Baixar todas as imagens nesta aba
+      </label>
+    </section>
+
+    <section>
+      <div class="row">
+        <div>
+          <h2>Corrigir imagens sem resize</h2>
+          <p class="muted">
+            Imagens maiores do que o espaço em que aparecem passam a ser baixadas já no tamanho certo a
+            partir da próxima visita.
+          </p>
+        </div>
+        <label class="switch"><input type="checkbox" id="resizeFix" /><span></span></label>
+      </div>
+      <p class="muted small">
+        Usa um serviço externo de redimensionamento (<span id="proxyHost"></span>), que recebe o endereço
+        dessas imagens.
+      </p>
+      <p id="resizeStats" class="stat" hidden></p>
+    </section>
+
+    <section>
+      <h2>Limpar cache automaticamente</h2>
+      <label class="check">
+        <input type="checkbox" id="cacheOnStartup" />
+        Ao abrir o navegador
+      </label>
+      <label class="check">
+        Repetir
+        <select id="cacheIntervalMin">
+          <option value="0">nunca</option>
+          <option value="15">a cada 15 minutos</option>
+          <option value="60">a cada hora</option>
+          <option value="360">a cada 6 horas</option>
+          <option value="1440">a cada 24 horas</option>
+        </select>
+      </label>
+      <div class="row">
+        <p id="lastClear" class="muted small"></p>
+        <button id="clearNow" type="button">Limpar agora</button>
+      </div>
+    </section>
+
+    <details>
+      <summary>Avançado</summary>
+      <label class="check">
+        <input type="checkbox" id="respectDpr" />
+        Manter nitidez em telas de alta densidade
+      </label>
+      <label class="field">
+        Serviço de redimensionamento
+        <input type="text" id="proxyTemplate" spellcheck="false" />
+        <span class="muted small">Use <code>{url}</code> para a imagem e <code>{w}</code> para a largura.</span>
+      </label>
+      <div class="row">
+        <p id="learned" class="muted small"></p>
+        <button id="forget" type="button">Esquecer</button>
+      </div>
+    </details>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
